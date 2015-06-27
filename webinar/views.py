@@ -2,7 +2,7 @@
 from datetime import datetime
 
 # Django
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
 # My Apps
@@ -20,3 +20,8 @@ def home(request):
         'groups': facebook_groups
 
     }, context_instance=RequestContext(request))
+
+
+def webinar_view(request, id):
+    webinar = get_object_or_404(Webinar, pk=id)
+    return render_to_response('webinar_view.html', {'webinar': webinar}, context_instance=RequestContext(request))
