@@ -16,6 +16,17 @@
 	mkvirtualenv bddevs
 	workon bddevs
 ```
+Ubuntu
+```
+	apt-get install python3-pip
+	pip3 install virtualenv
+	pip3 install virtualenvwrapper
+	$ export WORKON_HOME=~/Envs
+	$ mkdir -p $WORKON_HOME
+	$ source /usr/local/bin/virtualenvwrapper.sh
+	mkvirtualenv bddevs
+	workon bddevs
+```
 Please consult virtualenv docs for more information. 
 
 * Clone the git repo and `cd` into it. 
