@@ -1,0 +1,41 @@
+{% extends 'master.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-offset-1 col-md-7">
+            <h4>{{ last_webinar.title }}</h4>
+            {{ last_webinar.embed_code|safe }} <br/><br/>
+
+            {{ last_webinar.description }} <br/><br/>
+
+            <strong>Tagged: </strong> {% for tag in last_webinar.tags.all %} {{ tag.name }} {% endfor %}
+
+        </div>
+
+        <div class="col-md-2">
+            <h4>Facebook Groups:</h4>
+            <ul>
+                {% for group in groups %}
+                    <li><a target="_blank" href="{{ group.url }}">{{ group.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h4>Coming Sessions:</h4>
+
+            {% if next_webinars %}
+                <ul>
+                    {% for event in next_webinars %}
+                        <li>{{ event.title }}</li>
+
+                    {% endfor %}
+                </ul>
+            {% else %}
+                No upcoming sessions!
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
